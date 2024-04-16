@@ -1,23 +1,31 @@
-import { useState } from 'react'
-import './App.css'
-import { Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import './App.css';
+import { Routes, Route, Link } from 'react-router-dom';
+import Red from './Components/Red';
+import Blue from './Components/Blue';
+import Home from './Components/Home';
 
 function App() {
-  const [] = useState(0)
+  const [] = useState(0);
 
   return (
     <>
-    <div id="container">
-      <div id="navbar">{/* navigation here */}</div>
-      <div id="main-section">
-        <Routes>
-          <Route path="/blue" element={<h1>Blue</h1>} />
-          <Route path="/red" element={<h1>Red</h1>} />
-        </Routes>
+      <div id="container">
+        <div id="navbar">
+          <Link to="/">Home</Link>
+          <Link to="/blue">Blue</Link>
+          <Link to="/red">Red</Link>
+        </div>
+        <div id="main-section">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blue" element={<Blue />} />
+            <Route path="/red" element={<Red />} />
+          </Routes>
+        </div>
       </div>
-    </div>
     </>
-  )
+  );
 }
 
 export default App;
